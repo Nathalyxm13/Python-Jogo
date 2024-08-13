@@ -1,7 +1,7 @@
 import random
 
 def escolher_palavra():
-    palavras = ['python','desenvolvimento','jogo', 'programacao','algoritmo']
+    palavras = ['doce','caramelo','sorvete', 'bala','cookie']
     return random.choice(palavras).upper()
 
 def jogo_forca():
