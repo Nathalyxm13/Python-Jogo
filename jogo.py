@@ -1,43 +1,40 @@
 import random
 
 def escolher_palavra():
-    palavras = ['doce','caramelo','sorvete', 'bala','cookie']
+    palavras = ['salmão', 'peixe', 'camarão', 'lula', 'sushi']
     return random.choice(palavras).upper()
 
 def jogo_forca():
-    palavra= escolher_palavra()
-    letras_adivinhacao = []
+    palavra = escolher_palavra()
+    letras_adivinhadas = []
     tentativas = 6
     
     print("Bem-vindo ao Jogo da Forca!")
-    print("_"*len(palavra))
+    print("_ " * len(palavra))
 
     while tentativas > 0:
-        tentativas = input("Digite uma letra:").upper()
+        letra = input("Digite uma letra: ").upper()
     
-        if tentativas in letras_adivinhacao:
+        if letra in letras_adivinhadas:
             print("Você já tentou essa letra. Tente outra.")
             continue
     
-        letras_adivinhacao.append(tentativas)    #append irá procurar as letras que a pessoa disse
+        letras_adivinhadas.append(letra)
     
-        if tentativas in palavra:
+        if letra in palavra:
             print('Boa! A letra está na palavra.')
-        
         else:
             tentativas -= 1
-        print("Errado! Você tem () tentativas restantes.".format(tentativas))  
+            print("Errado! Você tem {} tentativas restantes.".format(tentativas))
         
-        palavra_oculta = " ".join(letra if letra in letras_adivinhacao else '_' for letra in palavra) 
-        print(" ".join(palvra_oculta))
+        palavra_oculta = " ".join(letra if letra in letras_adivinhadas else '_' for letra in palavra) 
+        print(palavra_oculta)
     
         if "_" not in palavra_oculta:
-        print("Parabéns! Você adivinhou a palavra.")
-        break      
+            print("Parabéns! Você adivinhou a palavra.")
+            break
     
     if tentativas == 0:
-       print("Você perdeu! A palvra era ()" .format(palavra))
+        print("Você perdeu! A palavra era {}.".format(palavra))
 
 jogo_forca()
-    
-    
